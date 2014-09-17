@@ -2,23 +2,7 @@
 import dj_database_url
 import os
 
-DATABASES['default'] =  dj_database_url.config()
 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
-
-
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 
 
@@ -42,6 +26,15 @@ DATABASES = {
         "NAME": "valuenetwork.sqlite",
     }
 }
+
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -82,16 +75,24 @@ MEDIA_URL = "/site_media/media/"
 # Don"t put anything in this directory yourself; store your static files
 # in apps" "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
+#STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = 'staticfiles'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = "/site_media/static/"
+#STATIC_URL = "/site_media/static/"
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 
 # Additional locations of static files
-STATICFILES_DIRS = [
-    os.path.join(PACKAGE_ROOT, "static"),
-]
+#STATICFILES_DIRS = [
+ #   os.path.join(PACKAGE_ROOT, "static"),
+#]
 
 # List of finder classes that know how to find static files in
 # various locations.
