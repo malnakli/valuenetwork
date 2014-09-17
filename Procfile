@@ -1,1 +1,1 @@
-web: gunicorn <django_project_root>.valuenetwork:valuenetwork --log-file -
+web: gunicorn valuenetwork.wsgi --log-file -
