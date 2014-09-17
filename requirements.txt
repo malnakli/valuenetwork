@@ -2,6 +2,7 @@
 --extra-index-url=http://dist.pinaxproject.com/alpha/
 
 South
+Django==1.4.13
 django_debug_toolbar
 django-extensions
 pinax-theme-bootstrap==2.0.4
@@ -16,3 +17,4 @@ django-webtest
 django-notification
 gunicorn==18.0
 wsgiref==0.1.2
+easy_thumbnails
