@@ -1,8 +1,13 @@
 # Parse database configuration from $DATABASE_URL
 
-import os
-
-
+import os.path
+root = os.path.dirname(__file__).replace('\\','/')
+ 
+MEDIA_ROOT = root + '/../media/'
+STATIC_ROOT = root + '/../static/'
+TEMPLATE_DIRS = (
+    root +'/../templates',
+)
 
 import dj_database_url
 DATABASES = {}
@@ -65,7 +70,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "media")
+#MEDIA_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "media")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -77,7 +82,7 @@ MEDIA_URL = "/site_media/media/"
 # in apps" "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 #STATIC_ROOT = os.path.join(PACKAGE_ROOT, "site_media", "static")
-STATIC_ROOT = 'staticfiles'
+#STATIC_ROOT = 'staticfiles'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -136,9 +141,9 @@ ROOT_URLCONF = "valuenetwork.urls"
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = "valuenetwork.wsgi.application"
 
-TEMPLATE_DIRS = [
-    os.path.join(PACKAGE_ROOT, "templates"),
-]
+# TEMPLATE_DIRS = [
+#     os.path.join(PACKAGE_ROOT, "templates"),
+# ]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
